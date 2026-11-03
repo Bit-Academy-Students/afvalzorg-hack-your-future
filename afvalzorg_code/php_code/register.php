@@ -1,6 +1,6 @@
 <?php   
 
-require_once("../quiz-locations/db.php");
+require_once("../database/db.php");
 
 function test_input($data)
 {
