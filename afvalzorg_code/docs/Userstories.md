@@ -51,7 +51,7 @@ acceptatie kriteria:
 
 Als werkgever wil ik dat de veiligheids instructies per locatie verschillen zodat de bijpassende instructies bij de goede locatie zitten<br>
 prioriteit:<br>
-Should have
+Should have <br>
 acceptatie kriteria:<br>
 1. De instructies zijn per locatie toegankelijk
 
