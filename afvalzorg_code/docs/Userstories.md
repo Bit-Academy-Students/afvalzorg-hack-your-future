@@ -42,7 +42,7 @@ Je kunt alleen bij deze pagina’s als je ingelogd bent als een werkgever/admin
 
 
 als werkgever wil ik dat er een overzichtspagina is waar ik kan zien wie er op welke locatie is
-prioriteit:<br>
+prioriteit:
 Should have
 acceptatie kriteria:
 Er is een admin pagina die alleen de werkgever kan zien waarin staat wie op welke locatie is en er werkt.
@@ -52,7 +52,7 @@ Je kan zien hoelaat en hoe laatiemand op een locatie is.
 Als werkgever wil ik dat de veiligheids instructies per locatie verschillen zodat de bijpassende instructies bij de goede locatie zitten
 prioriteit:
 Should have
-acceptatie kriteria:
+acceptatie kriteria:<br>
 De instructies zijn per locatie toegankelijk
 
 
