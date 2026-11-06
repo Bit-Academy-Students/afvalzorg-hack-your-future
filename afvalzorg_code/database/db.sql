@@ -20,4 +20,13 @@ CREATE TABLE `locations` (
     location varchar(255) NOT NULL
 );
 
-INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam')
+INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam');
+
+CREATE TABLE `check_logs` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid INT NOT NULL,
+    action enum('checkin', 'checkout') NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (userid) REFERENCES users(userid)
+);
