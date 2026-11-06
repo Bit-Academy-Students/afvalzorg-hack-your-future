@@ -23,7 +23,7 @@ CREATE TABLE `locations` (
 INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam');
 
 CREATE TABLE `check_logs` (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
     userid INT NOT NULL,
     action enum('checkin', 'checkout') NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

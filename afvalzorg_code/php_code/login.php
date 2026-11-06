@@ -55,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($user['persoon'] == "werknemer") {
                 $_SESSION['loggedInWerknemer'] = $user['userid'];
-                header("Location: home.html");
+                header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "chauffeur") {
                 $_SESSION['loggedInChauffeur'] = $user['userid'];
-                header("Location: home.html");
+                header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "leverancier") {
                 $_SESSION['loggedInLeverancier'] = $user['userid'];
