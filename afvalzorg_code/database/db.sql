@@ -11,6 +11,10 @@ CREATE TABLE `users` (
     password VARCHAR(255) NOT NULL,
     E_MAIL VARCHAR(255) NOT NULL UNIQUE,
     persoon ENUM ('werknemer', 'leverancier', 'chauffeur') NOT NULL,
-    telefoonnummer VARCHAR(50) NOT NULL
+    telefoonnummer VARCHAR(50) NOT NULL,
+    locatie VARCHAR(255) NOT NULL
 )
 
+CREATE TABLE `locaties` (
+    location varchar(255) NOT NULL
+)
