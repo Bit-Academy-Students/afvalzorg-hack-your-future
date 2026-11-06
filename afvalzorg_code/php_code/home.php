@@ -13,6 +13,7 @@
     <div class="navbar">
         <a id="navbarbegin">home</a>
         <a href="??">locatie</a>
+        <a href="Logout.php">Uitloggen</a>
         <div class="dropdown">
             <button class="dropbtn">taal v
                 <i class="fa fa-caret-down"></i>

@@ -131,10 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span class="error">* <?php echo $emailError;?></span><br><br>
             telefoonnummer <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="16">
             <span class="error">* <?php echo $phoneError;?></span><br><br>
-            Wie bent u? 
-            Werknemer <input type="radio" id="werknemer" name="persoon" value="werknemer">
-            Leverancier <input type="radio" id="leverancier" name="persoon" value="leverancier">
-            Chauffeur <input type="radio" id="chauffeur" name="persoon" value="chauffeur">
+            Wie bent u? <br>
+            Werknemer <input type="radio" id="werknemer" name="persoon" value="werknemer"><br>
+            Leverancier <input type="radio" id="leverancier" name="persoon" value="leverancier"><br>
+            Chauffeur <input type="radio" id="chauffeur" name="persoon" value="chauffeur"><br>
             Werkgever <input type="radio" id="chauffeur" name="persoon" value="werkgever">
             <span class="error">* <?php echo $persoonError;?></span><br><br>
             Wachtwoord <input type="password" id="password" name="password" maxlength="50" minlength="8">

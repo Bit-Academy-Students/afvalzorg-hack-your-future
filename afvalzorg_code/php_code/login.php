@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $location = $_POST['location'];
     }
 
-    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $statement = $pdo->prepare("SELECT * FROM users WHERE E_MAIL = :email");
     $statement->bindParam(':email', $email);
     $statement->execute();
     $user = $statement->fetch();
