@@ -15,6 +15,9 @@ CREATE TABLE `users` (
     locatie VARCHAR(255) NOT NULL
 )
 
-CREATE TABLE `locaties` (
+CREATE TABLE `locations` (
+    locationid MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     location varchar(255) NOT NULL
 )
+
+INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam')
