@@ -8,6 +8,11 @@ $emailError = "";
 $passwordError = "";
 $loginError = "";
 $registerError = "";
+$locationError = "";
+
+$statement = $pdo->prepare("SELECT * FROM locations");
+$statement->execute();
+$locations = $statement->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['email'])) {
@@ -24,6 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = $_POST['password'];
     }
 
+    if (empty($_POST['location'])) {
+        $locationError = "Kies een locatie!";
+    } else {
+        $location = $_POST['location'];
+    }
+
     $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $statement->bindParam(':email', $email);
     $statement->execute();
@@ -33,9 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         empty($emailError) &&
         empty($passwordError) &&
         empty($loginError)&&
-        empty($registerError)
+        empty($registerError) &&
+        empty($locationError)
     ) {
         if ($user && password_verify($password, $user['password'])) {
+            $statement = $pdo->prepare("UPDATE users SET location = :location WHERE userid = :userid");
+            $statement->bindParam(':location', $location);
+            $statement->bindParam(':userid', $user['userid']);
+            $statement->execute();
+
             if ($user['persoon'] == "werknemer") {
                 $_SESSION['loggedInWerknemer'] = $user['userid'];
                 header("Location: home.html");
@@ -48,6 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['loggedInLeverancier'] = $user['userid'];
                 header("Location: home.php");
                 exit();
+            } elseif ($user['persoon'] == "werkgever") {
+                $_SESSION['loggedInWerkgever'] = $user['userid'];
+                header("Location: home.php");
+                exit();            
             } else {
                 $registerError = "registreer in de registratie-pagina!";
             }
@@ -72,6 +93,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 email <input type="email" id="email" name="email">
                 <span class="error">* <?php echo $emailError;?></span><br><br>
                 password <input type="password" id="password" name="password" maxlength="50" minlength="8">
+                Locatie <select name="location" id="location">
+                <option value="">Kies een locatie</option>
+                <?php foreach ($locations as $location) {?>
+                <option value="<?= $location['location'] ?>"><?= $location['location'] ?></option>
+                <?php } ?>
+                </select>
+                <span class="error">* <?php echo $locationError; ?></span>
                 <span class="error">* <?php echo $passwordError;?></span><br><br>
                 <span class="error">* <?php echo $loginError;?></span><br><br>
                 <input type="submit" value="inloggen">
