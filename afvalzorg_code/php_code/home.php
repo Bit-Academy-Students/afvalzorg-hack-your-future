@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require_once('../database/db.php');
 
 if (!isset($_SESSION)) {
     header("location: login.php");
@@ -55,7 +56,7 @@ if (!isset($_SESSION)) {
     </div>
 
 
-    <h1>welkom: (naam persoon)</h1>
+    <h1>welkom: name </h1>
     <p>op mijn website kan je de talen aanpassen</p>
 
     <footer>medemogelijk gemaakt door mijzelf</footer>
