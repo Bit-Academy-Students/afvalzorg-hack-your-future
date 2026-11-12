@@ -14,8 +14,7 @@ if (!isset($_SESSION['loggedInWerkgever'])) {
 } else
 $userid = $_SESSION['loggedInWerkgever'];
 
-$account_info = $pdo->prepare('SELECT * FROM `users` WHERE userid = :id');
-$account_info->bindParam('id', $userid);
+$account_info = $pdo->query('SELECT * FROM users');
 $account_info->execute();
 
 ?>
@@ -35,18 +34,18 @@ $account_info->execute();
             <th>user id</th>
             <th>voornaam</th>
             <th>achternaam</th>
+            <th>rol</th>
             <th>locatie</th>
         </tr>
-        <tr>
-            <?php foreach ($account_info as $A) {
-                ?> <td><?= $A['user_id'] ?></td>
+        <?php foreach ($account_info as $A) {?>
+            <tr>
+                <td><?= $A['userid'] ?></td>
                 <td><?= $A['voornaam'] ?></td>   
                 <td><?= $A['achternaam'] ?></td>
                 <td><?= $A['persoon'] ?></td>
-                <td><?= $A['location'] ?>
-                <td>
-            <?php } ?>
-        </tr>
+                <td><?= $A['location'] ?></td>
+            </tr>
+        <?php } ?>
     </table>
 </body>
 </html>
