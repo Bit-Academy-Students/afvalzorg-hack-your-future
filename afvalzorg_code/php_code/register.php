@@ -135,7 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Werknemer <input type="radio" id="werknemer" name="persoon" value="werknemer"><br>
             Leverancier <input type="radio" id="leverancier" name="persoon" value="leverancier"><br>
             Chauffeur <input type="radio" id="chauffeur" name="persoon" value="chauffeur"><br>
-            Werkgever <input type="radio" id="chauffeur" name="persoon" value="werkgever">
             <span class="error">* <?php echo $persoonError;?></span><br><br>
             Wachtwoord <input type="password" id="password" name="password" maxlength="50" minlength="8">
             <span class="error">* <?php echo $wachtwoordError;?></span><br><br>

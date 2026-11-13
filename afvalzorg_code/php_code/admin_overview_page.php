@@ -84,7 +84,7 @@ $inchecklist->execute();
         <?php foreach ($account_info as $A) {?>
             <tr>
                 <td><?= $A['userid'] ?></td>
-                <td><?= $A['voornaam'] ?></td>   
+                <td><?= $A['voornaam'] ?></td>
                 <td><?= $A['achternaam'] ?></td>
                 <td><?= $A['persoon'] ?></td>
                 <td><?= $A['location'] ?></td>
@@ -118,6 +118,7 @@ $inchecklist->execute();
             <th>gebruiker id</th>
             <th>ingechecked/uitgechecked</th>
             <th>tijdstip</th>
+            <th>locatie</th>
         </tr>
         <?php
             foreach ($inchecklist as $a) {?>
@@ -126,6 +127,7 @@ $inchecklist->execute();
                     <td><?= $a['userid'] ?></td>
                     <td><?= $a['action'] ?></td>
                     <td><?= $a['created_at'] ?></td>
+                    <td><?= $a['location'] ?></td>
                 </tr>
             <?php } ?>
     </table>
