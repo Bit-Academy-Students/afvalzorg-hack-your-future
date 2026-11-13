@@ -20,7 +20,8 @@ $account_info->execute();
 $locations = $pdo->query('SELECT * FROM locations');
 $locations->execute();
 
-
+$inchecklist = $pdo->query('SELECT * FROM check_logs');
+$inchecklist->execute();
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,6 @@ $locations->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../js_code/script.js" defer></script>
-    <script src="../js_code/admin_page.js" defer></script>
     <link rel="stylesheet" href="../css_code/style.css">
     <link rel="stylesheet" href="../css_code/admin.css">
 </head>
@@ -70,6 +70,8 @@ $locations->execute();
             </button>
         </div>
 </div>
+<div class="row">
+    <div class="column">
     <table>
         <h1>accounts en locaties</h1>
         <tr>
@@ -89,15 +91,16 @@ $locations->execute();
             </tr>
         <?php } ?>
     </table>
-
+    </div>
+    <div class="column">
     <table>
         <h1>locaties</h1>
+        <tr>
+            <th>locatie id</th>
+            <th>locatie naam</th>
+        </tr>
             <?php
                 foreach ($locations as $a) {?>
-                    <tr>
-                        <th>locatie id</th>
-                        <th>locatie naam</th>
-                    </tr>
                     <tr>
                         <td><?= $a['locationid'] ?></td>
                         <td><?= $a['location'] ?> </td>
@@ -105,6 +108,27 @@ $locations->execute();
             <?php } ?>
     </table>
     <a href="location_add.php"> locatie toevoegen</a>
-
+    </div>
+    <div class="column">
+    <table>
+        <h1>timestamps</h1>
+        <tr>
+            <th>id</th>
+            <th>gebruiker id</th>
+            <th>ingechecked/uitgechecked</th>
+            <th>tijdstip</th>
+        </tr>
+        <?php
+            foreach ($inchecklist as $a) {?>
+                <tr>
+                    <td><?= $a['id'] ?></td>
+                    <td><?= $a['userid'] ?></td>
+                    <td><?= $a['action'] ?></td>
+                    <td><?= $a['created_at'] ?></td>
+                </tr>
+            <?php } ?>
+    </table>
+    </div>
+</div>
 </body>
 </html>
