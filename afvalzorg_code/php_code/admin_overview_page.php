@@ -98,13 +98,14 @@ $inchecklist->execute();
         <tr>
             <th>locatie id</th>
             <th>locatie naam</th>
+            <th>veiligheids instructie</th>
         </tr>
             <?php
                 foreach ($locations as $a) {?>
                     <tr>
                         <td><?= $a['locationid'] ?></td>
                         <td><?= $a['location'] ?> </td>
-                    </tr>
+                        <td><?= $a['safety_instr']?></td>
             <?php } ?>
     </table>
     <a href="location_add.php"> locatie toevoegen</a>

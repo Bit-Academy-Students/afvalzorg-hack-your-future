@@ -25,8 +25,9 @@ INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam');
 
 CREATE TABLE `check_logs` (
     id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
-    userid INT NOT NULL,
+    userid MEDIUMINT NOT NULL,
     action enum('checkin', 'checkout') NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
     FOREIGN KEY (userid) REFERENCES users(userid)
 );
