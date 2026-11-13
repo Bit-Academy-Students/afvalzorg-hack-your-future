@@ -18,7 +18,7 @@ CREATE TABLE `users` (
 CREATE TABLE `locations` (
     locationid MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     location varchar(255) NOT NULL,
-    safety_instr varchar(255)
+    safety_instr TEXT
 );
 
 INSERT INTO `locations` (`location`) VALUES ('assendelft'), ('zaandam');

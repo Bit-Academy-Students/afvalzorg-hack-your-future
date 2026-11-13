@@ -6,7 +6,7 @@ require_once("../database/db.php");
 if (isset($_POST['confirm'])) {
     $safety_instruction = $_POST['safety_instr'];
     $name = $_POST['location_name'];
-    $addition = $pdo->prepare('INSERT INTO location (location, safety_instr) VALUES :name, :sfty_instr');
+    $addition = $pdo->prepare('INSERT INTO locations (location, safety_instr) VALUES (:name, :sfty_instr)');
     $addition->bindParam(':name', $name);
     $addition->bindParam(':sfty_instr', $safety_instruction);
     $addition->execute();
