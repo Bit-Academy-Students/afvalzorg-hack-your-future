@@ -26,6 +26,9 @@ if (!isset($_SESSION)) {
         <a id="navbarbegin">home</a>
         <a href="??">locatie</a>
         <a href="Logout.php">Uitloggen</a>
+        <?php if (isset($_SESSION['loggedInWerkgever'])) {?>
+        <a href="admin_overview_page.php">admin page</a>
+        <?php } ?>
         <div class="dropdown">
             <button class="dropbtn">taal v
                 <i class="fa fa-caret-down"></i>
