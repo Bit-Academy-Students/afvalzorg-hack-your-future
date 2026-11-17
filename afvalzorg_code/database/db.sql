@@ -17,14 +17,20 @@ CREATE TABLE users (
 
 CREATE TABLE locations (
     locationid MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    location varchar(255) NOT NULL
+    location varchar(255) NOT NULL,
+    safety_instr TEXT
 );
 
-CREATE TABLE check_logs (
+INSERT INTO `locations` (`location`, `safety_instr`) VALUES 
+('Nauerna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. '),
+('de liede', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis.');
+ 
+CREATE TABLE `check_logs` (
     id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
     userid MEDIUMINT NOT NULL,
     action enum('checkin', 'checkout') NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    location varchar(255) NOT NULL,
 
     FOREIGN KEY (userid) REFERENCES users(userid)
 );
