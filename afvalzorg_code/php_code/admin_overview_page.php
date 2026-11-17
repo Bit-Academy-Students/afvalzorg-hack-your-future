@@ -116,7 +116,7 @@ $inchecklist->execute();
         <tr>
             <th>id</th>
             <th>gebruiker id</th>
-            <th>ingechecked/uitgechecked</th>
+            <th>checkin/checkout</th>
             <th>tijdstip</th>
             <th>locatie</th>
         </tr>
