@@ -9,9 +9,6 @@ const loc7 = document.getElementById("locatieButton7");
 const loc8 = document.getElementById("locatieButton8");
 const loc9 = document.getElementById("locatieButton9");
 
-test.addEventListener("click", function() {
-    console.log("test");
-});
 
 loc1.addEventListener('click', (event) => {
   document.getElementById('instructiepopup').style.display = 'flex';
