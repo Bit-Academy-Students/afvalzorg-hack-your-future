@@ -21,8 +21,9 @@ CREATE TABLE `locations` (
     safety_instr TEXT
 );
 
-INSERT INTO `locations` (`location`, `safety_instr`) VALUES ('assendelft', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. Fusce non imperdiet ligula, ut hendrerit libero. Integer rutrum eget tortor vitae molestie. Pellentesque pulvinar interdum dapibus. Nulla finibus tincidunt lorem non elementum'),
- ('zaandam', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. Fusce non imperdiet ligula, ut hendrerit libero. Integer rutrum eget tortor vitae molestie. Pellentesque pulvinar interdum dapibus. Nulla finibus tincidunt lorem non elementum.');
+INSERT INTO `locations` (`location`, `safety_instr`) VALUES 
+('Nauerna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. '),
+('de liede', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis.');
  
 CREATE TABLE `check_logs` (
     id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
