@@ -22,7 +22,7 @@ CREATE TABLE locations (
 
 CREATE TABLE check_logs (
     id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
-    userid INT NOT NULL,
+    userid MEDIUMINT NOT NULL,
     action enum('checkin', 'checkout') NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 

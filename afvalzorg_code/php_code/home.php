@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+require_once('../database/db.php');
+
+if (!isset($_SESSION)) {
+    header("location: login.php");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -13,6 +25,7 @@
     <div class="navbar">
         <a id="navbarbegin">home</a>
         <a href="??">locatie</a>
+        <a href="Logout.php">Uitloggen</a>
         <div class="dropdown">
             <button class="dropbtn">taal v
                 <i class="fa fa-caret-down"></i>
@@ -43,7 +56,7 @@
     </div>
 
 
-    <h1>welkom: (naam persoon)</h1>
+    <h1>welkom: name </h1>
     <p>op mijn website kan je de talen aanpassen</p>
 
     <footer>medemogelijk gemaakt door mijzelf</footer>
