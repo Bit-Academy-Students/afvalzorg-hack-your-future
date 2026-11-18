@@ -3,6 +3,24 @@
 session_start();
 require_once("../database/db.php");
 
+if (isset($_SESSION['isloggedin'])) {
+    $userid = $_SESSION['isloggedin'];
+    $role_check = $pdo->prepare('SELECT persoon FROM users WHERE userid = :id');
+    $role_check->bindParam(':id', $userid);
+    $role_check->execute();
+    $role_check->fetch();
+
+    if ($role_check != 'werkgever') {
+    ?>
+    <H1>U heeft geen toegang tot deze pagina!</H1>
+    <?php
+    ?>
+    <a href="home.php">terug naar startpagina</a> 
+    <?php
+    die();
+    }
+}
+
 if (!isset($_SESSION['loggedInWerkgever'])) {
     ?>
     <H1>U heeft geen toegang tot deze pagina!</H1>

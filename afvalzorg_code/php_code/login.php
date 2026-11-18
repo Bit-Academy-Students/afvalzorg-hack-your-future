@@ -54,21 +54,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement->execute();
 
             if ($user['persoon'] == "werknemer") {
-                $_SESSION['loggedInWerknemer'] = $user['userid'];
+                //$_SESSION['loggedInWerknemer'] = $user['userid'];
+                $_SESSION['isloggedin'] = $user['userid'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "chauffeur") {
-                $_SESSION['loggedInChauffeur'] = $user['userid'];
+                //$_SESSION['loggedInChauffeur'] = $user['userid'];
+                $_SESSION['isloggedin'] = $user['userid'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "leverancier") {
-                $_SESSION['loggedInLeverancier'] = $user['userid'];
+                //$_SESSION['loggedInLeverancier'] = $user['userid'];
+                $_SESSION['isloggedin'] = $user['userid'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "werkgever") {
-                $_SESSION['loggedInWerkgever'] = $user['userid'];
+                //$_SESSION['loggedInWerkgever'] = $user['userid'];
+                $_SESSIOn['isloggedin'] = $user['userid'];
                 header("Location: home.php");
-                exit();            
+                exit();
             } else {
                 $registerError = "registreer in de registratie-pagina!";
             }

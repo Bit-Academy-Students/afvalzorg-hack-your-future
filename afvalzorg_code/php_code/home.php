@@ -17,11 +17,11 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../js_code/script.js" defer></script>
     <link rel="stylesheet" href="../css_code/style.css">
 </head>
 
 <body id="body">
+    <script src="../js_code/script.js" defer></script>
     <div class="navbar">
         <a id="navbarbegin">home</a>
         <a href="??">locatie</a>
