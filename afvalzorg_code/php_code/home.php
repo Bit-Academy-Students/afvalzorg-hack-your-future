@@ -13,6 +13,7 @@ if ($login_succesful == 'no') {
     header("location: login.php");
     die();
 }
+
 //if (!isset($_SESSION['loggedin'])) {
 //    header ("location: login.php");
 //    die();

@@ -11,7 +11,8 @@ if (!isset($_SESSION['loggedInWerkgever'])) {
     <a href="home.php">terug naar startpagina</a> 
     <?php
     die();
-} else
+}
+
 $userid = $_SESSION['loggedInWerkgever'];
 
 $account_info = $pdo->query('SELECT * FROM users');
@@ -29,6 +30,12 @@ if (isset($_POST['aanpassen'])) {
     exit();
 }
 
+if (isset($_POST['delete'])) {
+    $location_delete = $pdo->prepare('DELETE FROM `locations` where locationid = :id');
+    $location_delete->bindParam('id', $_POST['locationid']);
+    $location_delete->execute();
+    header("location: admin_overview_page.php");
+}
 
 ?>
 <!DOCTYPE html>
