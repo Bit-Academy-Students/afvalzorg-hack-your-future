@@ -28,7 +28,7 @@ CREATE TABLE check_logs (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     location varchar(255) NOT NULL,
 
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE locations (
@@ -39,6 +39,7 @@ CREATE TABLE locations (
 
 CREATE TABLE instructions_video (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    location_id INT NOT NULL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     video LONGBLOB NOT NULL,
     mime_type VARCHAR(100) NOT NULL,
