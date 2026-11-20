@@ -48,25 +48,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         empty($locationError)
     ) {
         if ($user && password_verify($password, $user['password'])) {
-            $statement = $pdo->prepare("UPDATE users SET location = :location WHERE userid = :userid");
+            $statement = $pdo->prepare("UPDATE users SET location = :location WHERE user_id = :user_id");
             $statement->bindParam(':location', $location);
-            $statement->bindParam(':userid', $user['userid']);
+            $statement->bindParam(':user_id', $user['user_id']);
             $statement->execute();
 
             if ($user['persoon'] == "werknemer") {
-                $_SESSION['loggedInWerknemer'] = $user['userid'];
+                $_SESSION['loggedInWerknemer'] = $user['user_id'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "chauffeur") {
-                $_SESSION['loggedInChauffeur'] = $user['userid'];
+                $_SESSION['loggedInChauffeur'] = $user['user_id'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "leverancier") {
-                $_SESSION['loggedInLeverancier'] = $user['userid'];
+                $_SESSION['loggedInLeverancier'] = $user['user_id'];
                 header("Location: home.php");
                 exit();
             } elseif ($user['persoon'] == "werkgever") {
-                $_SESSION['loggedInWerkgever'] = $user['userid'];
+                $_SESSION['loggedInWerkgever'] = $user['user_id'];
                 header("Location: home.php");
                 exit();            
             } else {

@@ -105,7 +105,7 @@ $inchecklist->execute();
                     <tr>
                         <td><?= $a['locationid'] ?></td>
                         <td><?= $a['location'] ?> </td>
-                        <td><?= $a['safety_instr']?></td>
+                        <td><?= $a['safety_instructions']?></td>
             <?php } ?>
     </table>
     <a href="location_add.php"> locatie toevoegen</a>
@@ -124,7 +124,7 @@ $inchecklist->execute();
             foreach ($inchecklist as $a) {?>
                 <tr>
                     <td><?= $a['id'] ?></td>
-                    <td><?= $a['userid'] ?></td>
+                    <td><?= $a['user_id'] ?></td>
                     <td><?= $a['action'] ?></td>
                     <td><?= $a['created_at'] ?></td>
                     <td><?= $a['location'] ?></td>
