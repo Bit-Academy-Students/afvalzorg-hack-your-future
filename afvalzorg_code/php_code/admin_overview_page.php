@@ -23,6 +23,13 @@ $locations->execute();
 $inchecklist = $pdo->query('SELECT * FROM check_logs');
 $inchecklist->execute();
 
+if (isset($_POST['aanpassen'])) {
+    $_SESSION['locationid'] = $_POST['locationid'];
+    header("location: edit_locations.php");
+    exit();
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -99,6 +106,7 @@ $inchecklist->execute();
             <th>locatie id</th>
             <th>locatie naam</th>
             <th>veiligheids instructie</th>
+            <th>acties</th>
         </tr>
             <?php
                 foreach ($locations as $a) {?>
@@ -106,6 +114,13 @@ $inchecklist->execute();
                         <td><?= $a['locationid'] ?></td>
                         <td><?= $a['location'] ?> </td>
                         <td><?= $a['safety_instr']?></td>
+                        <td>
+                        <form method="post">
+                        <input type="hidden" name="locationid" value="<?= $a['locationid'] ?>">
+                        <input type="submit" name="aanpassen" value="aanpassen">
+                        <input type = submit name="delete" value="delete"></td>
+                        
+                        </form>
             <?php } ?>
     </table>
     <a href="location_add.php"> locatie toevoegen</a>

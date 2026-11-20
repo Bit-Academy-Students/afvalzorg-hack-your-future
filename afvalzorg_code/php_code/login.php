@@ -21,18 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $emailError = "Ongeldig emailadres!";
     } else {
         $email = $_POST['email'];
+        echo "email validated";
     }
 
     if (empty($_POST['password'])) {
         $passwordError = "Wachtwoord kan niet leeg zijn!";
     } else {
         $password = $_POST['password'];
+        echo "password correct";
     }
 
     if (empty($_POST['location'])) {
         $locationError = "Kies een locatie!";
     } else {
         $location = $_POST['location'];
+        echo "location validated";
     }
 
     $statement = $pdo->prepare("SELECT * FROM users WHERE E_MAIL = :email");
@@ -52,11 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement->bindParam(':location', $location);
             $statement->bindParam(':userid', $user['userid']);
             $statement->execute();
+            
+            // $_SESSION['loggedin'] = $user['id'];
+            // header("location: home.php");
+            //exit();
 
             if ($user['persoon'] == "werknemer") {
                 $_SESSION['loggedInWerknemer'] = $user['userid'];
                 header("Location: home.php");
-                exit();
+                exit(); 
             } elseif ($user['persoon'] == "chauffeur") {
                 $_SESSION['loggedInChauffeur'] = $user['userid'];
                 header("Location: home.php");
@@ -68,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } elseif ($user['persoon'] == "werkgever") {
                 $_SESSION['loggedInWerkgever'] = $user['userid'];
                 header("Location: home.php");
-                exit();            
+                exit();
             } else {
                 $registerError = "registreer in de registratie-pagina!";
             }

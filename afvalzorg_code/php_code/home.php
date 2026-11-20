@@ -3,10 +3,20 @@
 session_start();
 require_once('../database/db.php');
 
-if (!isset($_SESSION)) {
+if (isset($_SESSION['loggedInWerkgever']) OR isset($_SESSION['loggedInWerknemer']) OR isset($_SESSION['loggedInChauffeur']) OR isset($_SESSION['loggedInleverancier'])) {
+    $login_succesful = 'yes';
+    } else {
+        $login_succesful = 'no';
+    }
+    
+if ($login_succesful == 'no') {
     header("location: login.php");
     die();
 }
+//if (!isset($_SESSION['loggedin'])) {
+//    header ("location: login.php");
+//    die();
+//}
 
 ?>
 
