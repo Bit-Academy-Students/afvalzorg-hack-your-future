@@ -7,7 +7,12 @@ if (!isset($_SESSION['loggedInWerknemer']) && !isset($_SESSION['loggedInLeveranc
     exit;
 }
 
+$location = $_GET['location'];
 
+$locationinstruction = $pdo->prepare("SELECT * FROM locations WHERE location = :location");
+$locationinstruction->bindParam(':location', $location);
+$locationinstruction->execute();
+$locationinstruction->fetchAll();
 
 ?>
 
