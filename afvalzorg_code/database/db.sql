@@ -14,12 +14,6 @@ CREATE TABLE users (
     telefoonnummer VARCHAR(50) NOT NULL,
     location VARCHAR(255) NOT NULL DEFAULT "Niet op locatie"
 );
-
-
-
-INSERT INTO `locations` (`location`, `safety_instructions`) VALUES 
-('Nauerna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. '),
-('de liede', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis.');
  
 CREATE TABLE check_logs (
     id MEDIUMINT AUTO_INCREMENT PRIMARY KEY,
@@ -36,3 +30,7 @@ CREATE TABLE locations (
     location varchar(255) NOT NULL,
     safety_instructions TEXT
 );
+
+INSERT INTO `locations` (`location`, `safety_instructions`) VALUES 
+('Nauerna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis. '),
+('de liede', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel lorem leo. Vestibulum et urna pulvinar, scelerisque nunc id, fermentum orci. Vivamus congue nunc dolor, in scelerisque elit tempor non. Vivamus nec interdum lacus, sagittis tincidunt arcu. Vestibulum sollicitudin porttitor mollis.');
