@@ -4,11 +4,11 @@ session_start();
 require_once("../database/db.php");
 
 if (isset($_POST['confirm'])) {
-    $safety_instruction = $_POST['safety_instr'];
+    $safety_instruction = $_POST['safety_instructions'];
     $name = $_POST['location_name'];
-    $addition = $pdo->prepare('INSERT INTO locations (location, safety_instr) VALUES (:name, :sfty_instr)');
+    $addition = $pdo->prepare('INSERT INTO locations (location, safety_instructions) VALUES (:name, :safety_instructions)');
     $addition->bindParam(':name', $name);
-    $addition->bindParam(':sfty_instr', $safety_instruction);
+    $addition->bindParam(':safety_instructions', $safety_instruction);
     $addition->execute();
 
     header('location: admin_overview_page.php');
@@ -30,8 +30,8 @@ if (isset($_POST['confirm'])) {
     <form method="post">
         <label for="location_name"> locatie</label>
         <input type="text" name="location_name" placeholder="Ex: Zaandam">
-        <label for="safety_instr"> veiligheids instructie</label>
-        <input type="text" name="safety_instr">
+        <label for="safety_instructions"> veiligheids instructie</label>
+        <input type="text" name="safety_instructions">
         <input type="submit" name="confirm" value="toevoegen">
     </form>
 </body>

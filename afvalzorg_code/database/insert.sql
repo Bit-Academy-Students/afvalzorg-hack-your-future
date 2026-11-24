@@ -1,1 +1,0 @@
-INSERT INTO locations (location) VALUES ('assendelft'), ('zaandam');
