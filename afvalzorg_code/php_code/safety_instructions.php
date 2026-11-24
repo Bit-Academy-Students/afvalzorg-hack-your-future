@@ -19,6 +19,8 @@ if (!isset($_SESSION['loggedInWerknemer']) && !isset($_SESSION['loggedInLeveranc
         <title>Safety Instructions</title>
     </head>
     <body>
-        
+        <video width="400" controls>
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">Your browser does not support HTML video.</video>
     </body>
 </html>

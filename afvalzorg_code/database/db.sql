@@ -36,13 +36,3 @@ CREATE TABLE locations (
     location varchar(255) NOT NULL,
     safety_instructions TEXT
 );
-
-CREATE TABLE instructions_video (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    location_id INT NOT NULL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    video LONGBLOB NOT NULL,
-    mime_type VARCHAR(100) NOT NULL,
-    FOREIGN KEY (location_id) REFERENCES locations(location_id) ON DELETE CASCADE
-);
-
