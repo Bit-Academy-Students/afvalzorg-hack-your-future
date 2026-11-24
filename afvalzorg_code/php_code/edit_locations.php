@@ -58,7 +58,6 @@ if (!isset($_SESSION['loggedInWerkgever'])) {
             
             <label for="safety">veiligheids instructie   :</label><br>
             <textarea name="safety" id="safety"><?= $location_info['safety_instr'] ?></textarea><br>
-            
             <input type="submit" id = "opslaan" name="opslaan" value="opslaan">
             <a href="admin_overview_page.php">terug</a>
         </form>
