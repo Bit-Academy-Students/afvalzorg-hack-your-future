@@ -63,6 +63,7 @@ if (!isset($_SESSION)) {
     <p>op mijn website kan je de talen aanpassen</p>
 
     <footer>medemogelijk gemaakt door mijzelf</footer>
+    <script src="../js_code/script.js"></script>
 </body>
 
 </html>
