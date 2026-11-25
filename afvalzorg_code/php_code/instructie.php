@@ -1,3 +1,28 @@
+<?php 
+
+session_start();
+
+require_once("../database/db.php");
+
+if (!isset($_SESSION['loggedInWerknemer']) && !isset($_SESSION['loggedInLeverancier']) && !isset($_SESSION['loggedInChauffeur']) && !isset($_SESSION['loggedInWerkgever'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$user_id = $_GET['user_id'];
+
+$getlocation = $pdo->prepare("SELECT location FROM users WHERE user_id = :user_id");
+$getlocation->bindParam(':user_id', $user_id);
+$getlocation->execute();
+$location = $getlocation->fetchColumn();
+
+
+$locationinstruction = $pdo->prepare("SELECT * FROM locations WHERE location = :location");
+$locationinstruction->bindParam(':location', $location);
+$locationinstruction->execute();
+$instructions = $locationinstruction->fetch();
+
+?>
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -10,9 +35,7 @@
 </head>
 
 <body id="body">
-    
     <div class="navbar">
-        
     </div>
 
     <div class="instructie-container">
@@ -35,7 +58,9 @@
     <div id="instructiepopup" class="popup-instructie">
         <div class="popup-box">
             <h2>veiligheids instructie</h2>
-            <p>Lees de instructies zorgvuldig door voordat u verder gaat.</p>
+            <p><?php echo htmlspecialchars(
+                    $instructions['safety_instructions'] ?? 'Geen instructies gevonden voor deze locatie.');
+                ?></p>
             <button id="sluit-popup" onclick="window.location.href='incheck.html'">doorgaan</button>
         </div>
     </div>

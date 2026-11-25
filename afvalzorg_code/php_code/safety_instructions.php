@@ -9,7 +9,9 @@ if (!isset($_SESSION['loggedInWerknemer']) && !isset($_SESSION['loggedInLeveranc
     exit;
 }
 
-$location = $_GET['location'];
+$location = $_GET['location'] ?? '';
+
+echo "Selected location: " . htmlspecialchars($location);
 
 $locationinstruction = $pdo->prepare("SELECT * FROM locations WHERE location = :location");
 $locationinstruction->bindParam(':location', $location);
@@ -27,28 +29,39 @@ $locationinstruction->fetchAll();
     </head>
     <body>
         <div id="safety_popup" class="popup-overlay">
-        <div class="popup-box">
-            <h2>kiez je taal</h2>
-            <h2>Wählen Sie Ihre Sprache</h2>
-            <h2>choose your language</h2>
-            <button id="popUpNl" onclick="sluitPopup()" >
-                <img class="taal-pop-up" src="../images/nederland.png" alt="nederland">
-            </button>
-            <button id="popUpDe" onclick="sluitPopup()">
-                <img class="taal-pop-up" src="../images/duitsland.png" alt="duitsland">
-            </button>
-            <button id="popUpEn" onclick="sluitPopup()">
-                <img class="taal-pop-up" src="../images/engels.png" alt="engels">
-            </button>
-        </div>
-        <div id="instructiepopup" class="popup-instructie">
             <div class="popup-box">
-                <h2>veiligheids instructie</h2>
-                <p>Lees de instructies zorgvuldig door voordat u verder gaat.</p>
-                <button id="sluit-popup" onclick="window.location.href='incheck.html'">doorgaan</button>
+                <h2>kies je taal</h2>
+                <h2>Wählen Sie Ihre Sprache</h2>
+                <h2>choose your language</h2>
+
+                <button id="popUpNl" onclick="sluitPopup()">
+                    <img class="taal-pop-up" src="../images/nederland.png" alt="nederland">
+                </button>
+
+                <button id="popUpDe" onclick="sluitPopup()">
+                    <img class="taal-pop-up" src="../images/duitsland.png" alt="duitsland">
+                </button>
+
+                <button id="popUpEn" onclick="sluitPopup()">
+                    <img class="taal-pop-up" src="../images/engels.png" alt="engels">
+                </button>
+            </div>
+            <div id="instructiepopup" class="popup-instructie">
+                <div class="popup-box">
+                    <h2>veiligheids instructie</h2>
+                    <p>
+                        <?php 
+                            echo htmlspecialchars(
+                                $instructions['safety_instructions'] 
+                                ?? 'Geen instructies gevonden voor deze locatie.'
+                            ); 
+                        ?>
+                    </p>
+                    <button id="sluit-popup" onclick="window.location.href='incheck.html'">
+                        doorgaan
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     </body>
 </html>
-

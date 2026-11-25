@@ -8,6 +8,11 @@ if (!isset($_SESSION)) {
     die();
 }
 
+if (!isset($_SESSION['verified'])){
+    header("Location:instructie.php");
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
