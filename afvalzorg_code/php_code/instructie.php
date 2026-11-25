@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedInWerknemer']) && !isset($_SESSION['loggedInLeveranc
     exit;
 }
 
-$user_id = $_GET['user_id'];
+$user_id = $_SESSION['loggedInWerknemer'] ?? $_SESSION['loggedInLeverancier'] ?? $_SESSION['loggedInChauffeur'] ?? $_SESSION['loggedInWerkgever'];
 
 $getlocation = $pdo->prepare("SELECT location FROM users WHERE user_id = :user_id");
 $getlocation->bindParam(':user_id', $user_id);
