@@ -54,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement->execute();
 
             $_SESSION['loggedin'] = $user['userid'];
+            header("location: home.php");
+            exit();
         } else {
             $loginError = "Onjuiste email of wachtwoord!";
         }

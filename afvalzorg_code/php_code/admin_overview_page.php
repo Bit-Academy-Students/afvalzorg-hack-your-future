@@ -3,15 +3,15 @@
 session_start();
 require_once("../database/db.php");
 
-if (isset($_SESSION['loggedin'])) {
-    $userid = $_SESSION['loggedin'];
+if (isset($_SESSION['loggedin']) && !empty($_SESSION['loggedin'])) {
+$userid = $_SESSION['loggedin'];
 
-    $rollcheck = $pdo->prepare('SELECT persoon FROM users WHERE user_id = :id');
-    $rollcheck->bindParam('id', $userid);
-    $rollcheck->execute();
-    $rollcheck->fetchAll();
+$rollcheck_query = $pdo->prepare('SELECT persoon FROM users WHERE userid = :id');
+$rollcheck_query->bindParam('id', $userid);
+$rollcheck_query->execute();
+$rollcheck_result = $rollcheck_query->fetch();
     
-    if ($rollcheck != 'werkgever') {
+    if ($rollcheck_result['persoon'] != 'werkgever') {
         ?>
         <H1>U heeft geen toegang tot deze pagina!</H1>
         <?php

@@ -8,6 +8,12 @@ if (!isset($_SESSION['loggedin'])) {
     die();
 }
 
+$userid = $_SESSION['loggedin'];
+
+$rollcheck_query = $pdo->prepare('SELECT persoon FROM users WHERE userid = :id');
+$rollcheck_query->bindParam('id', $userid);
+$rollcheck_query->execute();
+$rollcheck_result = $rollcheck_query->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +32,8 @@ if (!isset($_SESSION['loggedin'])) {
         <a id="navbarbegin">home</a>
         <a href="??">locatie</a>
         <a href="Logout.php">Uitloggen</a>
-        <?php if (isset($_SESSION['loggedInWerkgever'])) {?>
-        <a href="admin_overview_page.php">admin page</a>
+        <?php if ($rollcheck_result['persoon'] == 'werkgever') {?>
+            <a href="admin_overview_page.php">admin page</a>
         <?php } ?>
         <div class="dropdown">
             <button class="dropbtn">taal v
@@ -57,8 +63,8 @@ if (!isset($_SESSION['loggedin'])) {
             </button>
         </div>
     </div>
-
-
+    <?= $rollcheck_result['persoon'] ?>
+    <?php var_dump($rollcheck_result)?>
     <h1>welkom: name </h1>
     <p>op mijn website kan je de talen aanpassen</p>
 
