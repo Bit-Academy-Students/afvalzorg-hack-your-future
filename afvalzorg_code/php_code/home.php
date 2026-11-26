@@ -3,7 +3,7 @@
 session_start();
 require_once('../database/db.php');
 
-if (!isset($_SESSION)) {
+if (!isset($_SESSION['loggedin'])) {
     header("location: login.php");
     die();
 }

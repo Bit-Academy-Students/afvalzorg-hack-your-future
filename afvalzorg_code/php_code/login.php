@@ -53,25 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement->bindParam(':userid', $user['userid']);
             $statement->execute();
 
-            if ($user['persoon'] == "werknemer") {
-                $_SESSION['loggedInWerknemer'] = $user['userid'];
-                header("Location: home.php");
-                exit();
-            } elseif ($user['persoon'] == "chauffeur") {
-                $_SESSION['loggedInChauffeur'] = $user['userid'];
-                header("Location: home.php");
-                exit();
-            } elseif ($user['persoon'] == "leverancier") {
-                $_SESSION['loggedInLeverancier'] = $user['userid'];
-                header("Location: home.php");
-                exit();
-            } elseif ($user['persoon'] == "werkgever") {
-                $_SESSION['loggedInWerkgever'] = $user['userid'];
-                header("Location: home.php");
-                exit();            
-            } else {
-                $registerError = "registreer in de registratie-pagina!";
-            }
+            $_SESSION['loggedin'] = $user['userid'];
         } else {
             $loginError = "Onjuiste email of wachtwoord!";
         }

@@ -3,16 +3,27 @@
 session_start();
 require_once("../database/db.php");
 
-if (!isset($_SESSION['loggedInWerkgever'])) {
-    ?>
-    <H1>U heeft geen toegang tot deze pagina!</H1>
-    <?php
-    ?>
-    <a href="home.php">terug naar startpagina</a> 
-    <?php
+if (isset($_SESSION['loggedin'])) {
+    $userid = $_SESSION['loggedin'];
+
+    $rollcheck = $pdo->prepare('SELECT persoon FROM users WHERE user_id = :id');
+    $rollcheck->bindParam('id', $userid);
+    $rollcheck->execute();
+    $rollcheck->fetchAll();
+    
+    if ($rollcheck != 'werkgever') {
+        ?>
+        <H1>U heeft geen toegang tot deze pagina!</H1>
+        <?php
+        ?>
+        <a href="home.php">terug naar startpagina</a> 
+        <?php
+        die();
+        }
+} else {
+    header('location: login.php');
     die();
-} else
-$userid = $_SESSION['loggedInWerkgever'];
+}
 
 $account_info = $pdo->query('SELECT * FROM users');
 $account_info->execute();
