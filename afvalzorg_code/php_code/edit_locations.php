@@ -45,22 +45,28 @@ if (!isset($_SESSION['loggedInWerkgever'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>editing Product</title>
-        <link rel="stylesheet" href="main.css">
-        <link rel="stylesheet" href="edit.css">
+        <link rel="stylesheet" href="../css_code/style.css">
+        <link rel="stylesheet" href="../css_code/edit.css">
     </head>
     <body>
         
+    <div class="navbar">
+
+    </div>
+
+    <div class="container">
         <form method="POST">
             <h1>locatie informatie aanpassen</h1>
             
-            <label for="location_name">locatie naam</label><br>
+            <label for="location_name">locatie naam     :</label><br>
             <input type="text" name="location_name" id="location_name" value="<?= $location_info['location'] ?>" required><br>
             
-            <label for="safety">veiligheids instructie   :</label><br>
+            <label for="safety">veiligheids instructie      :</label><br>
             <textarea name="safety" id="safety"><?= $location_info['safety_instr'] ?></textarea><br>
             <input type="submit" id = "opslaan" name="opslaan" value="opslaan">
-            <a href="admin_overview_page.php">terug</a>
+            <button type="button" onclick="window.location.href='admin_overview_page.php'">terug</button>
         </form>
+    </div>
         
     </body>
     </html>
