@@ -31,11 +31,12 @@ if (!isset($_SESSION['loggedInWerkgever'])) {
         if (!empty($_POST['location_name']) || !empty($_POST['safety'])) {
             $name = $_POST['location_name'];
             $safety_instructions = $_POST['safety'];
-            $update_locations = $pdo->prepare("UPDATE locations SET location = :location, safety_instr = :safety_instruction WHERE locationid");
+            $update_locations = $pdo->prepare("UPDATE locations SET location = :location, safety_instr = :safety_instruction WHERE locationid = :lo_id");
             $update_locations->bindParam('location', $name);
             $update_locations->bindParam('safety_instruction', $safety_instructions);
+            $update_locations->bindParam('lo_id', $lo_id);
             $update_locations->execute();
-            header("location: edit_locations.php");
+            header("location: admin_overview_page.php");
         }
     }
 ?>
