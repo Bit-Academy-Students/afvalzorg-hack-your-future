@@ -13,11 +13,12 @@ if (isset($_POST['confirm'])) {
 
     header('location: admin_overview_page.php');
     exit();
-    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +27,23 @@ if (isset($_POST['confirm'])) {
     <link rel="stylesheet" href="../css_code/style.css">
     <link rel="stylesheet" href="../css_code/admin.css">
 </head>
+
 <body>
-    <form method="post">
-        <label for="location_name"> locatie</label>
-        <input type="text" name="location_name" placeholder="Ex: Zaandam">
-        <label for="safety_instr"> veiligheids instructie</label>
-        <input type="text" name="safety_instr">
-        <input type="submit" name="confirm" value="toevoegen">
-    </form>
+
+    <div class="navbar">
+
+    </div>
+
+    <div class="container">
+
+        <form method="post">
+            <label for="location_name"> locatie</label>
+            <input type="text" name="location_name" placeholder="Ex: Zaandam">
+            <label for="safety_instr"> veiligheids instructie</label>
+            <input type="text" name="safety_instr">
+            <input type="submit" name="confirm" value="toevoegen">
+        </form>
+    </div>
 </body>
+
 </html>

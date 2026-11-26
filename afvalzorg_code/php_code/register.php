@@ -1,13 +1,13 @@
-<?php   
+<?php
 
 require_once("../database/db.php");
 
 function test_input($data)
 {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
 $nameError = "";
@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nameError = "Naam kan niet leeg zijn!";
     } else {
         $voornaam = test_input($_POST['voornaam']);
-        if (!preg_match("/^[a-zA-Z-']*$/",$voornaam)) {
-            $nameError="Alleen letters toegestaan!";
+        if (!preg_match("/^[a-zA-Z-']*$/", $voornaam)) {
+            $nameError = "Alleen letters toegestaan!";
         }
     }
 
@@ -34,13 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $lastnameError = "Achternaam kan niet leeg zijn!";
     } else {
         $achternaam = test_input($_POST['achternaam']);
-        if (!preg_match("/^[a-zA-Z-']*$/",$achternaam)) {
-            $lastnameError="Alleen letters toegestaan!";
+        if (!preg_match("/^[a-zA-Z-']*$/", $achternaam)) {
+            $lastnameError = "Alleen letters toegestaan!";
         }
     }
 
     if (empty($_POST["email"])) {
-    $emailError = "Email kan niet leeg zijn!";
+        $emailError = "Email kan niet leeg zijn!";
     } else {
         $email = test_input($_POST["email"]);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -91,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         empty($lastnameError) &&
         empty($emailError) &&
         empty($phoneError) &&
-        empty($persoonError)&&
-        empty($wachtwoordError)&&
-        empty($bevestigWachtwoordError)&&
+        empty($persoonError) &&
+        empty($wachtwoordError) &&
+        empty($bevestigWachtwoordError) &&
         empty($onjuisteWachtwoordError)
     ) {
         echo "validates";
@@ -114,34 +114,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../css_code/login.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+    </div>
+    <div class="container">
+
         <h1>Registreren</h1>
         <form method="POST">
             Voornaam <input type="text" name="voornaam" id="voornaam">
-            <span class="error">* <?php echo $nameError;?></span><br><br>
+            <span class="error">* <?php echo $nameError; ?></span><br><br>
             Achternaam <input type="text" name="achternaam" id="achternaam">
-            <span class="error">* <?php echo $lastnameError;?></span><br><br>
+            <span class="error">* <?php echo $lastnameError; ?></span><br><br>
             e-mail <input type="email" name="email" id="email">
-            <span class="error">* <?php echo $emailError;?></span><br><br>
+            <span class="error">* <?php echo $emailError; ?></span><br><br>
             telefoonnummer <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="16">
-            <span class="error">* <?php echo $phoneError;?></span><br><br>
-            Wie bent u? <br>
+            <span class="error">* <?php echo $phoneError; ?></span><br><br>
+            Wie bent u? <br><br>
             Werknemer <input type="radio" id="werknemer" name="persoon" value="werknemer"><br>
             Leverancier <input type="radio" id="leverancier" name="persoon" value="leverancier"><br>
             Chauffeur <input type="radio" id="chauffeur" name="persoon" value="chauffeur"><br>
-            <span class="error">* <?php echo $persoonError;?></span><br><br>
+            <span class="error">* <?php echo $persoonError; ?></span><br><br>
             Wachtwoord <input type="password" id="password" name="password" maxlength="50" minlength="8">
-            <span class="error">* <?php echo $wachtwoordError;?></span><br><br>
+            <span class="error">* <?php echo $wachtwoordError; ?></span><br><br>
             Wachtwoord bevestigen <input type="password" id="passwordconfirm" name="passwordconfirm" maxlength="50" minlength="8">
-            <span class="error">* <?php echo $bevestigWachtwoordError;?></span><br><br>
-            <span class="error">* <?php echo $onjuisteWachtwoordError;?></span><br><br>
+            <span class="error">* <?php echo $bevestigWachtwoordError; ?></span><br><br>
+            <span class="error">* <?php echo $onjuisteWachtwoordError; ?></span><br><br>
             <input type="submit" value="Registreren">
         </form>
-    </body>
+    </div>
+</body>
+
 </html>

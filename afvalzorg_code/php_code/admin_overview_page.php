@@ -54,21 +54,6 @@ $inchecklist->execute();
         </div>
     </div>
 
-    <div id="mijnPopup" class="popup-overlay">
-        <div class="popup-box">
-            <h2>kiez je taal</h2>
-            <h2>Wählen Sie Ihre Sprache</h2>
-            <h2>choose your language</h2>
-            <button id="popUpNl" onclick="sluitPopup()" >
-                <img class="taal-pop-up" src="../images/nederland.png" alt="nederland">
-            </button>
-            <button id="popUpDe" onclick="sluitPopup()">
-                <img class="taal-pop-up" src="../images/duitsland.png" alt="duitsland">
-            </button>
-            <button id="popUpEn" onclick="sluitPopup()">
-                <img class="taal-pop-up" src="../images/engels.png" alt="engels">
-            </button>
-        </div>
 </div>
 <div class="row">
     <div class="column">
@@ -108,7 +93,7 @@ $inchecklist->execute();
                         <td><?= $a['safety_instr']?></td>
             <?php } ?>
     </table>
-    <a href="location_add.php"> locatie toevoegen</a>
+    <button onclick="window.location.href='location_add.php'"> locatie toevoegen</button>
     </div>
     <div class="column">
     <table>
